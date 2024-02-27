@@ -45,12 +45,15 @@ a {
     grid-template-columns: 1fr 5fr;
     min-height: 100vh;
     transition: 0.3s ease-in-out;
-    /* overflow-y: hidden; */
 }
 
-.side-bar,
+.side-bar,.side-bar-collapsed,
 .employees-detail {
     height: 100vh;
+}
+
+.side-bar-collapsed.hide,.side-bar.hide{
+    display: none;
 }
 
 .side-bar {
@@ -71,8 +74,13 @@ a {
     width: 60%;
 }
 
+.logo-icon {
+    mix-blend-mode:darken;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
 .logo-icon img {
-    display: none;
     margin-left: .5rem;
     height: 4rem;
     width: 4rem;
@@ -101,6 +109,22 @@ a {
 
 .lock-icon img {
     height: 50%;
+}
+
+.lock-icon-collapse img {
+    height: 1.7rem;
+}
+
+.employees-bar-collapse {
+    position: relative;
+    background-color: #fde6e6;
+    width: 100%;
+    justify-content: center;
+}
+
+.icon-container {
+    align-items: center;
+    gap: .75rem;
 }
 
 .arrow {
@@ -149,14 +173,14 @@ a {
     right: -5%;
     background-color: #f44848;
 }
-
-
-/* .side-bar-options:hover{
-    position: relative;
-    background-color: #fde6e6;
-    border-radius: .3rem;
-    color: #f44848;
-} */
+.selected-mark-collapsed{
+    width: 2%;
+    border-radius: .5rem;
+    position: absolute;
+    height: 100%;
+    right: 1%;
+    background-color: #f44848;
+}
 
 #employees-sub-options {
     display: none;
@@ -513,7 +537,7 @@ a {
     margin-top: 0;
     font-size: .6rem;
     padding: .25rem .4rem;
-    border-radius:.3rem;
+    border-radius: .3rem;
     background-color: #fff;
 }
 
@@ -545,7 +569,7 @@ a {
     position: absolute;
     width: 100%;
     top: 100%;
-    }
+}
 
 .department-dropdown input,
 .location-dropdown input,
@@ -631,17 +655,25 @@ a {
     align-items: center;
 }
 
-.delete-btn {
+.delete-btn,
+.delete-btn[disabled] {
     /* outline: none; */
     border: none;
     cursor: pointer;
     margin-left: 2%;
     padding: .5% 1%;
     border-radius: .3rem;
-    background-color: #f89191;
     color: #fff;
     font-weight: 300;
     font-size: small;
+}
+
+.delete-btn[disabled] {
+    background-color: #f89191;
+}
+
+.delete-btn {
+    background-color: #f44848;
 }
 
 .add-list-btn {
@@ -936,7 +968,7 @@ th span {
 
 tr {
     position: relative;
-    
+
 }
 
 
@@ -966,7 +998,8 @@ tr {
     /* border: 1px solid red; */
 
 }
-.ellipsis-menu>:nth-child(2){
+
+.ellipsis-menu>:nth-child(2) {
     border-bottom: 1px solid black;
     border-top: 1px solid black;
 }
@@ -984,12 +1017,13 @@ thead,
     z-index: 1;
 }
 
-.cross{
+.cross {
     position: absolute;
     top: 3%;
     right: 3%;
     cursor: pointer;
 }
+
 .add-employee-form {
     visibility: hidden;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -1091,7 +1125,8 @@ thead,
     height: 1.6rem;
     width: 23rem;
 }
-.employment-information-container select option{
+
+.employment-information-container select option {
     background-color: white;
 }
 
@@ -1174,7 +1209,7 @@ label {
     justify-content: center;
     align-items: center;
     position: absolute;
-    background-color:  #fdf2f2;
+    background-color: #fdf2f2;
     top: 5%;
     left: 25%;
     height: 20vh;

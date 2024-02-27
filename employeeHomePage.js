@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     searchInput.addEventListener('input', searchBar);
     const addEmployeeForm = document.getElementsByClassName('add-employee-form')[0];
     addEmployeeForm.addEventListener("submit", checkValidation);
-    var employeeTable = document.getElementById('employee-table');
-    var rows = employeeTable.getElementsByTagName("tr");
     let input = document.querySelectorAll('.filter-options-container input');
     for (let i = 0; i < input.length; i++) {
         select = input[i].parentNode;

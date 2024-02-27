@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadEmployees();
     const addRoleForm = document.getElementById('roleForm');
     addRoleForm.addEventListener("submit", handleRoleSubmit);
-    // let roles=employeeDetails('rolesDetail');
-    // console.log(roles);
+    document.querySelector('.form-buttons>:first-child').onclick = () => window.location='../Roles.html';  
 });
 
 function searchEmployee(){
